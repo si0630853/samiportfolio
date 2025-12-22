@@ -1,0 +1,75 @@
+@keyframes fadeUpOpacity {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUpOpacity 900ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Card Base */
+::ng-deep .project-card {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 41, 59, 0.7),
+    rgba(15, 23, 42, 0.9)
+  );
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.45s ease;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Hover Magic */
+::ng-deep .project-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 35px 80px rgba(0,0,0,0.75);
+}
+
+/* Tech Chips */
+.tech-chip {
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .tech-chip {
+  background: rgba(249,115,22,0.25);
+  color: #fff;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #f97316;
+  color: black;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #fb923c;
+  transform: scale(1.05);
+}
+
+.btn-ghost {
+  font-size: 13px;
+  color: #9ca3af;
+  transition: 0.3s;
+}
+
+.btn-ghost:hover {
+  color: white;
+}

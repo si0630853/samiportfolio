@@ -1,0 +1,29 @@
+<section class="education-section animate-fade-up">
+  <div class="container">
+    <h2 class="title">Education Works!</h2>
+    <p class="subtitle">
+      Academic background focused on computer science and modern software development.
+    </p>
+    <div class="timeline">
+      <div
+        class="edu-card"
+        *ngFor="let edu of educationList; index as i"
+        [class.highlight]="edu.highlight"
+        [style.animationDelay]="(i * 150) + 'ms'"
+      >
+        <div class="badge">
+          {{ edu.level }}
+        </div>
+        <h3 class="institute">{{ edu.institute }}</h3>
+        <p class="status">
+          {{ edu.status }}
+          <span *ngIf="edu.year">• {{ edu.year }}</span>
+        </p>
+        <p class="description" *ngIf="edu.highlight">
+        <span style="font-size: large; font-weight: bold; color: aqua;">4 Semester Done!</span> Currently pursuing a Bachelor’s degree in Computer Science, with a strong
+          focus on software engineering, databases, and modern web technologies.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
