@@ -1,37 +1,78 @@
-<nav class="fixed w-full z-50">
-  <div class="backdrop-blur-md bg-slate-900/60 border-b border-slate-800/30 text-white flex items-center justify-between px-6 py-3 md:px-8">
+<nav class="fixed top-0 left-0 w-full z-50">
+  <!-- Top Bar -->
+  <div class="backdrop-blur-md bg-slate-900/60 border-b border-slate-800/30
+           text-white flex items-center justify-between
+           px-6 py-3 md:px-8 h-[64px]">
+
+    <!-- Logo -->
     <a routerLink="/" class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center font-bold text-black">SI</div>
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br
+               from-orange-400 to-pink-500
+               flex items-center justify-center
+               font-bold text-black">
+        SI
+      </div>
       <span class="font-bold text-lg md:text-xl">Sami Ibrahim</span>
     </a>
 
+    <!-- Desktop Menu -->
     <div class="hidden md:flex items-center gap-6">
-      <a routerLink="/" routerLinkActive="text-orange-400 font-semibold" [routerLinkActiveOptions]="{exact:true}" class="hover:text-orange-400 transition">Home</a>
-      <a routerLink="/projects" routerLinkActive="text-orange-400 font-semibold" class="hover:text-orange-400 transition">Projects</a>
-      <a routerLink="/experience" routerLinkActive="text-orange-400 font-semibold" class="hover:text-orange-400 transition">Experience</a>
-      <a routerLink="/education" routerLinkActive="text-orange-400 font-semibold" class="hover:text-orange-400 transition">Education</a>
-      <a routerLink="/contact" routerLinkActive="text-orange-400 font-semibold" class="hover:text-orange-400 transition">Contact</a>
+      <a routerLink="/" routerLinkActive="text-orange-400 font-semibold" [routerLinkActiveOptions]="{ exact: true }"
+        class="hover:text-orange-400 transition">Home</a>
+
+      <a routerLink="/projects" routerLinkActive="text-orange-400 font-semibold"
+        class="hover:text-orange-400 transition">Projects</a>
+
+      <a routerLink="/experience" routerLinkActive="text-orange-400 font-semibold"
+        class="hover:text-orange-400 transition">Experience</a>
+
+      <a routerLink="/education" routerLinkActive="text-orange-400 font-semibold"
+        class="hover:text-orange-400 transition">Education</a>
+
+      <a routerLink="/contact" routerLinkActive="text-orange-400 font-semibold"
+        class="hover:text-orange-400 transition">Contact</a>
     </div>
 
+    <!-- Mobile Toggle -->
     <div class="md:hidden">
-      <button (click)="toggleMenu()" aria-label="Toggle navigation" class="p-2 rounded-md bg-white/5 hover:bg-white/10 focus:outline-none">
-        <svg *ngIf="!isOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <button (click)="toggleMenu()" aria-label="Toggle navigation" class="p-2 rounded-md bg-white/5 hover:bg-white/10">
+
+        <!-- Hamburger -->
+        <svg *ngIf="!isOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-        <svg *ngIf="isOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+        <!-- Close -->
+        <svg *ngIf="isOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
   </div>
 
-  <div *ngIf="isOpen" class="md:hidden bg-slate-900/90 backdrop-blur-md border-b border-slate-800/30">
-    <div class="flex flex-col px-4 py-4 gap-2">
-      <a (click)="toggleMenu()" routerLink="/" class="py-2 px-3 rounded-md hover:bg-white/5">Home</a>
-      <a (click)="toggleMenu()" routerLink="/projects" class="py-2 px-3 rounded-md hover:bg-white/5">Projects</a>
-      <a (click)="toggleMenu()" routerLink="/experience" class="py-2 px-3 rounded-md hover:bg-white/5">Experience</a>
-      <a (click)="toggleMenu()" routerLink="/education" class="py-2 px-3 rounded-md hover:bg-white/5">Education</a>
-      <a (click)="toggleMenu()" routerLink="/contact" class="py-2 px-3 rounded-md hover:bg-white/5">Contact</a>
+  <!-- Mobile Menu -->
+  <div *ngIf="isOpen" class="fixed top-[64px] left-0 w-full
+         h-[calc(100vh-64px)]
+         bg-slate-900/95 backdrop-blur-md
+         md:hidden z-40 overflow-y-auto">
+    <div class="flex flex-col px-6 py-6 gap-4 text-lg text-white">
+      <a (click)="toggleMenu()" routerLink="/" class="py-3 border-b border-slate-700 hover:text-orange-400">
+        Home
+      </a>
+      <a (click)="toggleMenu()" routerLink="/projects" class="py-3 border-b border-slate-700 hover:text-orange-400">
+        Projects
+      </a>
+      <a (click)="toggleMenu()" routerLink="/experience" class="py-3 border-b border-slate-700 hover:text-orange-400">
+        Experience
+      </a>
+      <a (click)="toggleMenu()" routerLink="/education" class="py-3 border-b border-slate-700 hover:text-orange-400">
+        Education
+      </a>
+      <a (click)="toggleMenu()" routerLink="/contact" class="py-3 hover:text-orange-400">
+        Contact
+      </a>
     </div>
   </div>
 </nav>
